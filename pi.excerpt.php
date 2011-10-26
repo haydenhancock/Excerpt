@@ -16,7 +16,7 @@ Class Excerpt {
 		
 		// Parameter(s)
 		$excerpt_length = ($this->EE->TMPL->fetch_param('$excerpt_length') !== false) ? $this->EE->TMPL->fetch_param('$excerpt_length') : 55;
-		$excerpt_more = $this->EE->TMPL->fetch_param('excerpt_more');
+		$excerpt_more = ($this->EE->TMPL->fetch_param('$excerpt_more') !== false) ? $this->EE->TMPL->fetch_param('$excerpt_more') : '...';
 		
 		// Set defaults
 		if (!is_numeric($excerpt_length)) {
