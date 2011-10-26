@@ -15,16 +15,12 @@ Class Excerpt {
 		$text = $this->EE->TMPL->tagdata;
 		
 		// Parameter(s)
-		$excerpt_length = $this->EE->TMPL->fetch_param('excerpt_length');
+		$excerpt_length = ($this->EE->TMPL->fetch_param('$excerpt_length') !== false) ? $this->EE->TMPL->fetch_param('$excerpt_length') : 55;
 		$excerpt_more = $this->EE->TMPL->fetch_param('excerpt_more');
 		
 		// Set defaults
 		if (!is_numeric($excerpt_length)) {
 			$excerpt_length = 55;
-		}
-		
-		if ($excerpt_more == '') {
-			$excerpt_more = '...';
 		}
 		
 		$this->return_data = $this->trim_excerpt($text, $excerpt_length, $excerpt_more);
